@@ -1,1 +1,5 @@
 a.txt
+build/
+.build/
+.vscode/
+
