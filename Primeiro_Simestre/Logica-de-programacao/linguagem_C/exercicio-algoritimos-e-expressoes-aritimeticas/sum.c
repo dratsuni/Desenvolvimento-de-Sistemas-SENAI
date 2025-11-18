@@ -14,6 +14,7 @@ int main(){
     
     printf("Resultado: %d + %d = %d\n", num1, num2, sum(num1, num2));
 
+    return 0;
 }
 
 void clearBuffer(){
