@@ -1,9 +1,12 @@
 
-# Exercício Algoritimos e Expressões Aritiméticas - SENAI
+# Exercício Algoritmos e Expressões Aritméticas - SENAI
 
 **_Data: 20/08/2025_**
 
-**_Grade curricular: Lógica de programação_**
+**_Disciplina: Lógica de programação_**
+
+**_Linguagem: C_**
+
 
 **_Professor: Victor Moak_**
 
@@ -15,10 +18,10 @@
 > Resposta: [algoritmo_soma.c](algoritmo_soma.c)
 
 #### 1. Faça um algoritmo que receba dois números e ao final mostre a soma, subtração, a multiplicação e a divisão dos números lidos.
-> Resposta: [algoritmo_consumo_medio.c](algoritmo_consumo_medio.c)
 
 
 #### 2. Escrever um algoritmo para determinar o consumo médio de um automóvel sendo fornecida a distância Total percorrida pelo automóvel e o total de combustível gasto.
+> Resposta: [algoritmo_consumo_medio.c](algoritmo_consumo_medio.c)
 
 #### 3. Escrever um algoritmo que leia o nome de um aluno e as notas das três provas que ele obteve no semestre. No final informar o nome do aluno e a sua média (aritmética).
 
