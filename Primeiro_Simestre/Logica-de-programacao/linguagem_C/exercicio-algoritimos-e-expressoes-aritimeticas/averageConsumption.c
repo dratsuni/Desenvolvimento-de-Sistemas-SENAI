@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-
-
 void clearBuffer();
 double average(double distance, double fuelConsumed);
 
@@ -22,7 +20,6 @@ void clearBuffer(){
     int c;
     while((c = getchar()) != '\n' && c != EOF);
 }
-
 
 double average(double distance, double fuelConsumed){
     return  distance / fuelConsumed;

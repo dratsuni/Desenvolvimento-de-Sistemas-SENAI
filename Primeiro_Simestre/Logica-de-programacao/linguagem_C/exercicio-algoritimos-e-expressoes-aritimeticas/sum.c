@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 void clearBuffer();
 int sum(int num1, int num2);
 
