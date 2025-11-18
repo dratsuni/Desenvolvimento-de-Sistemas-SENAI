@@ -2,4 +2,6 @@ a.txt
 build/
 .build/
 .vscode/
-
+*.out
+*.exe
+*.o
