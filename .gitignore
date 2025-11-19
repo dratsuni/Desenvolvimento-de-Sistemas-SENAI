@@ -5,3 +5,6 @@ build/
 *.out
 *.exe
 *.o
+.clang-format
+.clang-tidy
+.editorconfig
