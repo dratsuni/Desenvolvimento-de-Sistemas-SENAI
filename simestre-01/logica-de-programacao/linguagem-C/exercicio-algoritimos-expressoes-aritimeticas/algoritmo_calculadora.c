@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 
+
 typedef struct {
     double (*PointerFunc) (double, double); 
     char operator;
@@ -53,7 +54,6 @@ double div(double n1, double n2){
 
 void calculate(double n1, double n2){
     Operation operation[4] = {{sum, '+'}, {mult, '*'}, {sub, '-'}, {div, '/'} };
-
     for (int i = 0; i < 4; i++){
         printf("%.0lf %c %.0lf = %.2lf\n", n1, operation[i].operator, n2, operation[i].PointerFunc(n1, n2));
     }
