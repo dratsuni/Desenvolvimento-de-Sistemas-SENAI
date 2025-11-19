@@ -41,12 +41,16 @@ double sub(double n1, double n2){
 }
 
 double div(double n1, double n2){
-    return n1 / n2;
+    if (n1 != 0 && n2 != 0){
+        return n1 / n2;
+    }
+
+    return 0;
 }
 void calculate(double n1, double n2){
     PointerFunc func[4] = {sum, mult, sub, div};
-
     char opArray[4] = {'+', '*', '-', '/'};
+
     for (int i = 0; i < 4; i++){
         printf("%.0lf  %c  %.0lf = %.2lf\n", n1, opArray[i], n2,func[i](n1, n2));
     }
