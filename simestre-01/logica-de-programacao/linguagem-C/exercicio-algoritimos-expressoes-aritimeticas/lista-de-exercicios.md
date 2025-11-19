@@ -19,6 +19,7 @@
 
 #### 1. Faça um algoritmo que receba dois números e ao final mostre a soma, subtração, a multiplicação e a divisão dos números lidos.
 
+> Resposta: [algoritmo_calculadora.c](algoritmo_calculadora.c)
 
 #### 2. Escrever um algoritmo para determinar o consumo médio de um automóvel sendo fornecida a distância Total percorrida pelo automóvel e o total de combustível gasto.
 > Resposta: [algoritmo_consumo_medio.c](algoritmo_consumo_medio.c)
