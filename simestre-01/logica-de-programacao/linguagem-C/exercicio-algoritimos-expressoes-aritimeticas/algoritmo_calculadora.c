@@ -50,6 +50,7 @@ double div(double n1, double n2){
 
     return 0;
 }
+
 void calculate(double n1, double n2){
     Operation operation[4] = {{sum, '+'}, {mult, '*'}, {sub, '-'}, {div, '/'} };
 
