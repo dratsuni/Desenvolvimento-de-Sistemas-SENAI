@@ -3,7 +3,7 @@
 
 
 typedef struct {
-    double (*PointerFunc) (double, double); 
+    double (*PointerFunc) (double, double);
     char operator;
 } Operation;
 
