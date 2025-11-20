@@ -1,10 +1,18 @@
 #include <stdio.h>
 
-void clearBuffer();
-int sum(int num1, int num2);
+
+static inline int sum(int num1, int num2) {
+    return num1 + num2;
+}
+
+void clearBuffer(){
+    int c = 0;
+    while((c = getchar()) != '\n' && c != EOF); 
+}
 
 int main(){
-    int num1, num2;
+    int num1 = 0; 
+    int num2 = 0; 
     
     printf("Digite o primeiro número: ");
     scanf("%d", &num1);
@@ -16,11 +24,4 @@ int main(){
     return 0;
 }
 
-void clearBuffer(){
-    int c;
-    while((c = getchar()) != '\n' && c != EOF); 
-}
 
-int sum(int num1, int num2){
-    return num1 + num2;
-}

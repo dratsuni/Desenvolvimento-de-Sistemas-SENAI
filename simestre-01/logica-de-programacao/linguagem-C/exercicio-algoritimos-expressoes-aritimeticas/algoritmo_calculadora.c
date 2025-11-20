@@ -58,3 +58,4 @@ void calculate(double n1, double n2){
         printf("%.0lf %c %.0lf = %.2lf\n", n1, operation[i].operator, n2, operation[i].PointerFunc(n1, n2));
     }
 }
+
