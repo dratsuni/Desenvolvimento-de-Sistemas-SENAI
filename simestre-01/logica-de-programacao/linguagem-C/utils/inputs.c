@@ -5,17 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../utils/headers/inputs.h"
-#define BUFFER_SIZE 20
-#define MIN_ASCII_NUMBER 48
-#define MAX_ASCII_NUMBER 57
+#define BUFFER_SIZE 22
+#define ZERO_ASCII 48
 
-
-static inline int is_signal(int char_sig){
-    if (char_sig == '-' || char_sig == '+'){
-        return 1;
-    }
-    return 0;
-}
 
 
 int int_input(int *p_int_var){
@@ -49,11 +41,13 @@ int str_to_int(int *int_pointer, char *number_char_pointer){
 
     if (int_pointer != NULL && number_char_pointer != NULL){
         length = (long) strlen(number_char_pointer);
-        int have_a_signal = is_signal(number_char_pointer[0]);
 
-        for (int i = have_a_signal; i < length; i++){
+        for (long i = 0; i < length; i++){
+            if (result > INT_MAX || result < INT_MIN){
+                return 1;
+            }
             if(isdigit(number_char_pointer[i])){
-                int to_number = (int) number_char_pointer[i] - MIN_ASCII_NUMBER;
+                int to_number = number_char_pointer[i] - ZERO_ASCII;
                 result = (result * 10) + to_number;
             } else {
                 return 1;
@@ -62,15 +56,8 @@ int str_to_int(int *int_pointer, char *number_char_pointer){
 
         }
         
-        if (have_a_signal){
-            if (number_char_pointer[0] == '-'){
-                result = -result;
-            }
-        }
 
-        if (result > INT_MAX || result < INT_MIN){
-            return 1;
-        }
+
 
     
         *int_pointer = (int) result;
