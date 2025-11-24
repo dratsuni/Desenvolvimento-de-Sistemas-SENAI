@@ -1,10 +1,6 @@
 #ifndef INPUTS_H
 #define  INPUTS_H
-#define  LETTER_IN_INT_INPUT 3
-#define INT_MAX_OUT_OF_RANGE 4
-#define OUT_OF_RANGE 2
-#define VOID_INPUT 1
-#define SUCESS 0
+
 
 int int_input(int *p_int_var);
 int double_input(double *p_double_var);

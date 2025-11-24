@@ -1,64 +1,69 @@
 #include <limits.h>
 #include <ctype.h>
+#include <stddef.h>
 #include <stdio.h>
-#include <errno.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 #include "../utils/headers/inputs.h"
 #define BUFFER_SIZE 22
 #define ZERO_ASCII 48
+#define INT_MIN_UNSIGNED 2147483648
 
+
+static inline int is_signal(int chr){
+    if (chr == '+' || chr == '-'){
+        return 1;
+    }
+    return 0;
+}
 
 
 int int_input(int *p_int_var){
     char buffer[BUFFER_SIZE];
     char *end_pointer = NULL;
-    errno = 0;
 
     if (fgets(buffer, sizeof(buffer), stdin) != NULL){
         if (buffer[0] != '\n'){
-            long temp_var = strtol(buffer, &end_pointer, 10);
-            if (errno == ERANGE){
-                return OUT_OF_RANGE;
-            } if (end_pointer == buffer && end_pointer[0] != '\n'){
-                return  LETTER_IN_INT_INPUT;
-            } if (temp_var > INT_MAX){
-                return INT_MAX_OUT_OF_RANGE;
+            int number = 0;
+            int sucess = str_to_int(&number, buffer);
+            
+            if (sucess == 1){
+                return 1;
             }
 
-            *p_int_var = (int) temp_var;
-            return SUCESS;
+            *p_int_var = number;
+            return 0;
         }
     }
 
-    return VOID_INPUT;
+    return 1;
 }
 
 
 int str_to_int(int *int_pointer, char *number_char_pointer){
-    long length = 0;
-    long result = 0;
+    unsigned int result = 0;
 
     if (int_pointer != NULL && number_char_pointer != NULL){
-        length = (long) strlen(number_char_pointer);
+        size_t length = strlen(number_char_pointer);
+        int have_a_signal = is_signal(number_char_pointer[0]);
+        
+        for (size_t i = have_a_signal; i < length; i++){
+            int to_number = (int) number_char_pointer[i];
 
-        for (long i = 0; i < length; i++){
-            if (result > INT_MAX || result < INT_MIN){
-                return 1;
-            }
-            if(isdigit(number_char_pointer[i])){
-                int to_number = number_char_pointer[i] - ZERO_ASCII;
-                result = (result * 10) + to_number;
+            if(isdigit(to_number)){
+                result = (result * 10) + (to_number - ZERO_ASCII); 
+                if (result > INT_MIN_UNSIGNED){
+                    return 1;
+                }
             } else {
                 return 1;
             }
-            printf("RESULT: %ld\n", result);
-
         }
-        
 
-
-
+        if (number_char_pointer[0] == '-' || result == INT_MIN_UNSIGNED){
+            result = -result;
+        }
     
         *int_pointer = (int) result;
         return 0;
