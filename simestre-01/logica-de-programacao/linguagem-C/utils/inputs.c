@@ -49,7 +49,7 @@ int str_to_int(int *int_pointer, char *number_char_pointer){
         size_t length = strlen(number_char_pointer);
         int have_a_signal = is_signal(number_char_pointer[0]);
         uint64_t result = 0;
-
+        
         for (size_t i = have_a_signal; i < length; i++){
             unsigned char ascii =  number_char_pointer[i];
             if(isdigit(ascii)){
