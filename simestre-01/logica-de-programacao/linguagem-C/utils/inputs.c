@@ -54,11 +54,11 @@ int str_to_int(int *int_pointer, char *number_char_pointer){
             unsigned char ascii =  number_char_pointer[i];
             if(isdigit(ascii)){
                 ascii -= ZERO_ASCII;
-                if (result > INT_MIN_UNSIGNED){
+                if (result * 10 + ascii > INT_MIN_UNSIGNED){
                     return 1;
                 }
                 result = (result * 10) + ascii; 
-                printf("resulatadao: %ld\n", result);
+                printf("resulatadao: %u\n", result);
             } else {
                 return 1;
             }
