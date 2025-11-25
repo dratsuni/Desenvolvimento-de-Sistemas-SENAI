@@ -18,15 +18,19 @@ typedef struct {
 
 
 
-
+int str_input(char *char_array, size_t size);
 
 
 int main() {
-    char a[20] = "2147483";
-    int num = 0;
-    str_to_int(&num, a);   
-    printf("resultado: %d\n", num);
+    int a = 0;
+
+
+    printf("escreva algo: ");
+    int_input(&a);
+
+    printf("resultado: %d\n", a);
 }
+
 
 
 
