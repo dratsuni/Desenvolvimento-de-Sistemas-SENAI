@@ -1,6 +1,8 @@
+#include <float.h>
 #include <limits.h>
 #include <ctype.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,20 +44,21 @@ int int_input(int *p_int_var){
 
 
 int str_to_int(int *int_pointer, char *number_char_pointer){
-    unsigned int result = 0;
 
     if (int_pointer != NULL && number_char_pointer != NULL){
         size_t length = strlen(number_char_pointer);
         int have_a_signal = is_signal(number_char_pointer[0]);
-        
-        for (size_t i = have_a_signal; i < length; i++){
-            int to_number = (int) number_char_pointer[i];
+        uint64_t result = 0;
 
-            if(isdigit(to_number)){
-                result = (result * 10) + (to_number - ZERO_ASCII); 
+        for (size_t i = have_a_signal; i < length; i++){
+            unsigned char ascii =  number_char_pointer[i];
+            if(isdigit(ascii)){
+                ascii -= ZERO_ASCII;
                 if (result > INT_MIN_UNSIGNED){
                     return 1;
                 }
+                result = (result * 10) + ascii; 
+                printf("resulatadao: %ld\n", result);
             } else {
                 return 1;
             }
