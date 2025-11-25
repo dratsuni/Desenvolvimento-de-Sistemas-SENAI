@@ -22,10 +22,10 @@ typedef struct {
 
 
 int main() {
-    char *a = "600000000000000";
+    char a[20] = "2147483";
     int num = 0;
-    str_to_int(&num, a);
-    printf("resultado: %d", num);
+    str_to_int(&num, a);   
+    printf("resultado: %d\n", num);
 }
 
 

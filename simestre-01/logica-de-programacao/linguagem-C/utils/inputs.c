@@ -46,30 +46,42 @@ int int_input(int *p_int_var){
 int str_to_int(int *int_pointer, char *number_char_pointer){
 
     if (int_pointer != NULL && number_char_pointer != NULL){
-        size_t length = strlen(number_char_pointer);
-        int have_a_signal = is_signal(number_char_pointer[0]);
-        uint64_t result = 0;
+        int negator = 1;
+        int index = 0;
+        int converted_numbers = 0;
+
+        if (number_char_pointer[0] == '-'){
+            negator = -negator;
+            number_char_pointer++;
+        }
         
-        for (size_t i = have_a_signal; i < length; i++){
-            unsigned char ascii =  number_char_pointer[i];
+        int64_t result = 0;
+
+        while (number_char_pointer[index] != '\0'){
+            char ascii =  number_char_pointer[index];
+
             if(isdigit(ascii)){
-                ascii -= ZERO_ASCII;
-                if (result * 10 + ascii > INT_MIN_UNSIGNED){
+                int to_number = ascii - ZERO_ASCII;
+                result = (result * 10) + to_number; 
+                if (result > INT_MIN_UNSIGNED){
                     return 1;
                 }
-                result = (result * 10) + ascii; 
-                printf("resulatadao: %u\n", result);
+                converted_numbers++;
             } else {
                 return 1;
             }
+
+            index++;
         }
 
-        if (number_char_pointer[0] == '-' || result == INT_MIN_UNSIGNED){
-            result = -result;
+        if (converted_numbers > 0){
+            if (negator == 1 && result == INT_MIN_UNSIGNED){ 
+                return 1;
+            }
+            
+            *int_pointer = (int) result * negator;
+            return 0;
         }
-    
-        *int_pointer = (int) result;
-        return 0;
     }
 
     return 1;
