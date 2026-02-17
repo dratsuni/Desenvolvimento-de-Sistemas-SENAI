@@ -6,7 +6,7 @@
 **_Disciplina: Lógica de programação_**
 
 **_Linguagem: C_**
-
+    
 
 **_Professor: Victor Moak_**
 
@@ -25,7 +25,7 @@
 > Resposta: [algoritmo_consumo_medio.c](algoritmo_consumo_medio.c)
 
 #### 3. Escrever um algoritmo que leia o nome de um aluno e as notas das três provas que ele obteve no semestre. No final informar o nome do aluno e a sua média (aritmética).
-
+> Resposta: [algoritmo_nota_aluno.c](algoritmo_nota_aluno.c)
 #### 4. Faça algoritmo que receba um valor que foi depositado e exiba o valor com rendimento após um mês.
 * — Considere fixo o juro da poupança em 0,70% a. m.
 

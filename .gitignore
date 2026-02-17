@@ -9,3 +9,4 @@ build/
 .clang-tidy
 .editorconfig
 *.txt
+.class
