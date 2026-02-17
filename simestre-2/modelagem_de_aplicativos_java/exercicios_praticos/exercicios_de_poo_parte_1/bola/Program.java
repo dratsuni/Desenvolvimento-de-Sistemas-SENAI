@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args){
-        Ball ball = new Ball("RED");
+        Ball ball = new Ball("WHITE");
         Scanner sc = new Scanner(System.in);
         int op = 0;
 
